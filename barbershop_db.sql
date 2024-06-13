@@ -77,11 +77,17 @@ CREATE TABLE `clients` (
   `first_name` varchar(30) NOT NULL,
   `last_name` varchar(30) NOT NULL,
   `phone_number` varchar(30) NOT NULL,
+  `client_email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `clients`
 --
+
+INSERT INTO `clients` (`client_id`, `first_name`, `last_name`, `phone_number`, `client_email`) VALUES
+(1, 'Dennis', 'S Embry', '651-779-6791', 'dennis_embry@gmail.com'),
+(2, 'Bonnie', 'A Rivera', '714-327-5825', 'bonnie_rivera@yahoo.fr'),
+(13, 'Driss', 'Jabiri', '0789342481', 'driss.jabiri@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -101,6 +107,11 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
+INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `phone_number`, `email`) VALUES
+(1, 'RJ\r\n', 'Casillan', '', ''),
+(2, 'K\r\n', 'Fades', '', ''),
+(3, 'Santino\r\n', 'Tesoro', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +130,18 @@ CREATE TABLE `employees_schedule` (
 -- Dumping data for table `employees_schedule`
 --
 
+INSERT INTO `employees_schedule` (`id`, `employee_id`, `day_id`, `from_hour`, `to_hour`) VALUES
+(29, 3, 1, '09:00:00', '18:00:00'),
+(30, 3, 7, '09:00:00', '17:00:00'),
+(38, 2, 1, '09:00:00', '17:00:00'),
+(39, 2, 6, '09:00:00', '18:00:00'),
+(40, 2, 7, '09:00:00', '18:00:00'),
+(41, 1, 1, '09:00:00', '18:00:00'),
+(42, 1, 2, '15:00:00', '22:00:00'),
+(43, 1, 3, '09:00:00', '18:00:00'),
+(44, 1, 4, '00:00:00', '20:00:00'),
+(45, 1, 5, '09:00:00', '14:00:00'),
+(46, 1, 7, '09:00:00', '18:00:00');
 
 -- --------------------------------------------------------
 
@@ -139,6 +162,17 @@ CREATE TABLE `services` (
 -- Dumping data for table `services`
 --
 
+INSERT INTO `services` (`service_id`, `service_name`, `service_description`, `service_price`, `service_duration`, `category_id`) VALUES
+(1, 'Hair Cut', 'Barber is a person whose occupation is mainly to cut dress groom style and shave men', 21.00, 20, 4),
+(2, 'Hair Styling', 'Barber is a person whose occupation is mainly to cut dress groom style and shave men', 9.00, 15, 4),
+(3, 'Hair Triming', 'Barber is a person whose occupation is mainly to cut dress groom style and shave men', 10.00, 10, 4),
+(4, 'Clean Shaving', 'Barber is a person whose occupation is mainly to cut dress groom style and shave men', 20.00, 20, 2),
+(5, 'Beard Triming', 'Barber is a person whose occupation is mainly to cut dress groom style and shave men', 20.00, 15, 2),
+(6, 'Smooth Shave', 'Barber is a person whose occupation is mainly to cut dress groom style and shave men', 15.00, 20, 2),
+(7, 'White Facial', 'Barber is a person whose occupation is mainly to cut dress groom style and shave men', 16.00, 15, 3),
+(8, 'Face Cleaning', 'Barber is a person whose occupation is mainly to cut dress groom style and shave men', 20.00, 20, 3),
+(9, 'Bright Tuning', 'Barber is a person whose occupation is mainly to cut dress groom style and shave men', 14.00, 20, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -153,6 +187,10 @@ CREATE TABLE `services_booked` (
 --
 -- Dumping data for table `services_booked`
 --
+
+INSERT INTO `services_booked` (`appointment_id`, `service_id`) VALUES
+(12, 1),
+(12, 3);
 
 -- --------------------------------------------------------
 
@@ -169,6 +207,10 @@ CREATE TABLE `service_categories` (
 -- Dumping data for table `service_categories`
 --
 
+INSERT INTO `service_categories` (`category_id`, `category_name`) VALUES
+(2, 'Shaving'),
+(3, 'Face Masking'),
+(4, 'Uncategorized');
 
 --
 -- Indexes for dumped tables
